@@ -1,5 +1,14 @@
 from library import *
 
+#Define write to json
+def write_json(wrtline, wrt):
+    try:
+        with open(path + "/preferences.json") as pr:
+            jsdecoded = json.load(pr)
+            jsdecoded[str(wrtline)] = str(wrt)
+        with open(path + "/preferences.json", 'w') as jfil:
+            json.dump(jsdecoded, jfil)
+    except Exception as e: print(e)
 #Path
 path = os.path.dirname(os.path.abspath(sys.argv[0]))
 #Presets
@@ -7,14 +16,47 @@ with open (path + "/preferences.json") as p:
     prefs = json.load(p)
 #Start
 if(prefs["local"] == "False"):
-    print("Welcome to JokerCord Pokecord selfbot. The prefix is _ . You can enable auto spam in preferences.json. Please do notice this is in beta stage and we do no assure all pokemons are correct. If you see that the names are incorrect, you can head to preferences.json and change the hash type to phash or dhash. We are not responsible for any bans. Please type your token in preferences.json.")
-    try:
-        with open(path + "/preferences.json") as pr:
-            jsdecoded = json.load(pr)
-            jsdecoded["local"] = "True"
-        with open(path + "/preferences.json", 'w') as jfil:
-            json.dump(jsdecoded, jfil)
-    except Exception as e: print(e)
+    correct_spam = 0
+    correct_channel = 0
+    correct_interval = 0
+    print("Welcome to JokerCord Pokecord selfbot. The prefix is _ . You can enable auto spam in preferences.json. Please do notice this is in beta stage and we do no assure all pokemons are correct. If you see that the names are incorrect, you can head to preferences.json and change the hash type to phash or dhash. We are not responsible for any bans.")
+    time.sleep(2)
+    print("You will be prompted some details before continuing.")
+    print("Please input your discord token. Don´t worry, it won't be shared with anyone.")
+    token_raw = input("Insert your token: ")
+    write_json("token", token_raw)
+    time.sleep(1)
+    while(correct_spam == 0):
+        auto_spam_raw = input("Please choose whether to activate auto-spam (True/False): ")
+        if(auto_spam_raw != "True" and auto_spam_raw != "False"):
+            print("Please select True or False")
+        else:
+            write_json("auto_spam", auto_spam_raw)
+            time.sleep(3)
+            correct_spam = 1
+    
+    while(correct_channel == 0):
+        auto_spam_channel_raw = input("Please type the desired channel id: (Type - if you dont want auto spam): ")
+        if(auto_spam_channel_raw == "-"):
+            correct_channel = 1
+        elif(len(auto_spam_channel_raw) != 18 or auto_spam_channel_raw.isdigit() != 1):
+            print("Please type a valid channel id")
+        else:
+            write_json("auto_spam_channel", auto_spam_channel_raw)
+            correct_channel = 1
+    while(correct_interval == 0):
+        auto_spam_interval_raw = input("Please type the desired spam interval in seconds (Type - if you dont want auto spam, default is 5s): ")
+        if(auto_spam_interval_raw == "-"):
+            correct_interval = 1
+        elif(auto_spam_interval_raw.isdigit() != 1):
+            print("Please type a valid time interval.")
+        else:
+            write_json("auto_spam_interval", auto_spam_interval_raw)
+            correct_interval = 1
+    auto_spam_text = input("Lastly, please input the spam text: ")
+    write_json("auto_spam_text", auto_spam_text)
+    write_json("local", "True")
+    print("Please restart the bot to continue.")
     sys.exit(0)
 if(prefs["token"] == "INSERT YOUR TOKEN HERE. DONT REMOVE THE QUOTATION MARKS"):
     print("Please insert a valid token in preferences.json")
@@ -43,7 +85,7 @@ with open (path + '/Lists/dhash.json') as dd:
 #Ready
 @client.event
 async def on_ready():
-    print("JokerCord is connected and running. Version : BETA 0.0.1")
+    print("JokerCord is connected and running. Version : BETA 0.0.2")
     if(prefs["auto_spam"] == "True"):
         while(1):
             #try:
