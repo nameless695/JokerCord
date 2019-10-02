@@ -25,7 +25,7 @@ _add_bulk Pokemon1,Pokemon2,Pokemon3,Pokemon4...
 Adds every Pokemon in the list. Please separate each Pokemon with a comma ","
 
 ## Beginner Guide
-If you wanna use this bot, just click on the green button that says "Clone or Download" and select Download to Zip. Extract the folder anywhere you like.
+If you wanna use this not, just click on the green button that says "Clone or Download" and select Download to Zip. Extract the folder anywhere you like.
 
 
 If you have never used Python, this will guide you through each step in order to make this bot work.
@@ -62,7 +62,7 @@ cmd
 ```
 In the search box. After the console opens, you can install each library by typing:
 ```bash
-pip3 install discord.py
+pip.exe install discord.py
 ```
 Replacing discord.py with the library name.
 After installing all the dependencies, just close the terminal and open your File Manager. Go to the Downloaded folder and double click joker.py. You're done!
