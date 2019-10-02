@@ -62,9 +62,11 @@ cmd
 ```
 In the search box. After the console opens, you can install each library by typing:
 ```bash
+cd C:\Python\Scripts\
 pip.exe install discord.py
 ```
 Replacing discord.py with the library name.
+Please if you installed Python in a different folder than cd C:\Python\Scripts\ type that path instead.
 After installing all the dependencies, just close the terminal and open your File Manager. Go to the Downloaded folder and double click joker.py. You're done!
 
 ## Usage
