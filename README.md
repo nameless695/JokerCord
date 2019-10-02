@@ -9,6 +9,47 @@ Just make sure to have installed the last Python version. You can download it he
 [Download the latest Python version](https://www.python.org/downloads/)
 
 A brief list of the required libraries can be seen below.
+
+## Useful commands
+```bash
+_list_state True/False
+```
+Enables or disables custom catch list.
+```bash
+_add Pokemon
+```
+Adds specified Pokemon to the catch list.
+```bash
+_add_bulk Pokemon1,Pokemon2,Pokemon3,Pokemon4...
+```
+Adds every Pokemon in the list. Please separate each Pokemon with a comma ","
+
+## Beginner Guide
+If you have never used Python, this will guide you through each step in order to make this bot work.
+
+First of all, identify your Operating System (Windows, GNU/Linux, MacOS...)
+**For Linux**
+Open a terminal session and run apt update:
+```bash
+sudo apt-get update
+```
+Install Python3 and Pip:
+```bash
+sudo apt-get install python3 && sudo apt-get install python3-pip
+```
+To install the required libraries, simply run pip as follows:
+```bash
+pip3 install discord.py && pip3 install dhash && pip3 install imagehash && pip3 install requests && pip3 install python-resize-image && pip3 install PIL
+```
+Lastly, to run JokerCord navigate to the downloaded folder:
+```bash
+cd /path/to/the/folder
+```
+Please make sure the path is the same as joker.py or else the bot will probably not work.
+Then run it with python3:
+```bash
+python3 joker.py
+```
 ## Usage
 
 Edit the file preferences.json file to add your token and enable the auto-spam function in case you wanted it. Auto spam comes disabled by default.
