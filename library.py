@@ -10,4 +10,5 @@ from resizeimage import resizeimage
 from discord.ext import commands
 from PIL import Image
 import sys, os
+import random
     

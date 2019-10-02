@@ -1,6 +1,14 @@
 from library import *
 
 #Define write to json
+def add_pokemon(name):
+    try:
+        with open(path + "/User/customs.json") as cs:
+            jsdecoded = json.load(cs)
+            jsdecoded[str(name)] = ""
+        with open(path + "/User/customs.json", 'w') as jfil:
+            json.dump(jsdecoded, jfil)
+    except Exception as e: print(e)
 def write_json(wrtline, wrt):
     try:
         with open(path + "/preferences.json") as pr:
@@ -20,12 +28,14 @@ if(prefs["local"] == "False"):
     correct_channel = 0
     correct_interval = 0
     print("Welcome to JokerCord Pokecord selfbot. The prefix is _ . You can enable auto spam in preferences.json. Please do notice this is in beta stage and we do no assure all pokemons are correct. If you see that the names are incorrect, you can head to preferences.json and change the hash type to phash or dhash. We are not responsible for any bans.")
+    print("Currently the bot is locked to only capture pokemons in the spam_channel guild. It will be changed in a future release.")
     time.sleep(2)
     print("You will be prompted some details before continuing.")
     print("Please input your discord token. Don´t worry, it won't be shared with anyone.")
     token_raw = input("Insert your token: ")
     write_json("token", token_raw)
     time.sleep(1)
+
     while(correct_spam == 0):
         auto_spam_raw = input("Please choose whether to activate auto-spam (True/False): ")
         if(auto_spam_raw != "True" and auto_spam_raw != "False"):
@@ -45,9 +55,12 @@ if(prefs["local"] == "False"):
             write_json("auto_spam_channel", auto_spam_channel_raw)
             correct_channel = 1
     while(correct_interval == 0):
-        auto_spam_interval_raw = input("Please type the desired spam interval in seconds (Type - if you dont want auto spam, default is 5s): ")
+        auto_spam_interval_raw = input("Please type the desired spam interval in seconds (Type - if you dont want auto spam, type R if you want a random time delay, default is 5s): ")
         if(auto_spam_interval_raw == "-"):
             correct_interval = 1
+        elif(auto_spam_interval_raw == "R"):
+            correct_interval = 1
+            write_json("auto_spam_interval", "R")
         elif(auto_spam_interval_raw.isdigit() != 1):
             print("Please type a valid time interval.")
         else:
@@ -80,15 +93,23 @@ with open (path + '/Lists/phash.json') as pd:
     pdata = json.load(pd)
 with open (path + '/Lists/dhash.json') as dd:
     ddata = json.load(dd)
+with open (path + '/User/customs.json') as c:
+    custom_list = json.load(c)
 #End
 
 #Ready
 @client.event
 async def on_ready():
-    print("JokerCord is connected and running. Version : BETA 0.0.2")
+    print("JokerCord is connected and running. Version : BETA 0.0.3")
     if(prefs["auto_spam"] == "True"):
         while(1):
             #try:
+            if(prefs["auto_spam_interval"] == "R"):
+                channel = client.get_channel(int(prefs["auto_spam_channel"]))
+                await channel.send(prefs["auto_spam_text"])
+                rand = random.randrange(1, 20)
+                await asyncio.sleep(rand)
+            else:
                 channel = client.get_channel(int(prefs["auto_spam_channel"]))
                 await channel.send(prefs["auto_spam_text"])
                 await asyncio.sleep(int(prefs["auto_spam_interval"]))
@@ -103,7 +124,8 @@ async def on_message(message):
     except IndexError:
         ev = 0
     #Check if message is from Pokecord Spawn
-    if (message.author.id != client.user.id and ev == 1): #and "A wild" in message.content):
+    ch = client.get_channel(int(prefs["auto_spam_channel"]))
+    if (message.author.id != client.user.id and ev == 1 and (ch in message.message.author.guild.channels)): #and "A wild" in message.content):
         
         try:
             url = embed.image.url
@@ -145,7 +167,11 @@ async def on_message(message):
                     if(diff < dummy):
                         dummy = diff
                         save_line = line
-                await message.channel.send("p!catch " + save_line)
+                if(prefs["custom_list"] == "True"):
+                    if(save_line in custom_list):
+                        await message.channel.send("p!catch " + save_line)
+                    else:
+                        return
             else:
                 await message.channel.send("There has been an error with the config file. Please refer to preferences.json or contact the developer. Please make sure 'hash_type' is either phash or dhash.")
         except AttributeError:
@@ -153,7 +179,37 @@ async def on_message(message):
     await client.process_commands(message)
 
 @client.command()
-async def pref(message):
-    await message.channel.send(prefs["hash_type"])
+async def add(message, pokemon):
+    if(pokemon in pdata):
+        if(item in custom_list):
+                pass
+        else:
+            add_pokemon(pokemon)
+            await message.channel.send("Pokemon " + pokemon + " added to the catch list")
+    else:
+        await message.channel.send("Pokemon not found. Please type it with the first letter being capital. Ex.: 'Piplup'")
+@client.command()
+async def add_bulk(message, pokemon_bulk):
+    bulk = pokemon_bulk.split(",")
+    for item in bulk:
+        if(item in pdata):
+            if(item in custom_list):
+                pass
+            else:
+                add_pokemon(item.replace(" ", ""))
+                
+        else:
+            pass
+    await message.channel.send("Bulk pokemon added to the list. Please restart the bot to apply changes.")
+@client.command()
+async def list_state(message, state):
+    if (state != "True" and state != "False"):
+        await message.channel.send("Please type True or False")
+    else:
+        write_json("custom_list", state)
+        if(state == "True"):
+            await message.channel.send("Custom list enabled. Please restart the bot for changes to take effect")
+        elif(state == "False"):
+            await message.channel.send("Custom list disabled. Please restart the bot for changes to take effect")
 
 client.run(prefs["token"], bot=False)

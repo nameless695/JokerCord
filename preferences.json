@@ -1,1 +1,1 @@
-{"hash_type": "phash", "local": "False", "token": "INSERT YOUR TOKEN HERE. DONT REMOVE THE QUOTATION MARKS", "auto_spam":"False", "auto_spam_channel":"INSERT CHANNEL ID HERE", "auto_spam_text":"INSERT CUSTOM TEXT HERE", "auto_spam_interval":"5"}
+{"hash_type": "phash", "local": "False", "token": "", "auto_spam": "False", "auto_spam_channel": "", "auto_spam_text": "", "auto_spam_interval": "5", "custom_list": "False"}
