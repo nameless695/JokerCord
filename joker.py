@@ -1,6 +1,18 @@
 from library import *
 
 #Define write to json
+def file_read(folder, fname):
+    catched = open(path + "/" + folder + "/" + fname, "r")
+    lines = catched.readlines()
+    catched.close()
+    return lines
+def clear_file(folder, fname):
+    open(path + "/" + folder + "/" + fname, 'w').close()
+def file_append(folder, fname, append):
+    p = (path + "/" + folder + "/" + fname)
+    f = open(p, "a")
+    f.write(append + " ")
+    f.close()
 def add_pokemon(name):
     try:
         with open(path + "/User/customs.json") as cs:
@@ -95,6 +107,8 @@ with open (path + '/Lists/dhash.json') as dd:
     ddata = json.load(dd)
 with open (path + '/User/customs.json') as c:
     custom_list = json.load(c)
+
+
 #End
 
 #Ready
@@ -125,7 +139,7 @@ async def on_message(message):
         ev = 0
     #Check if message is from Pokecord Spawn
     ch = client.get_channel(int(prefs["auto_spam_channel"]))
-    if (message.author.id != client.user.id and ev == 1 and (ch in message.message.author.guild.channels)): #and "A wild" in message.content):
+    if (message.author.id != client.user.id and ev == 1 and (ch in message.guild.channels)): #and "A wild" in message.content):
         
         try:
             url = embed.image.url
@@ -158,7 +172,16 @@ async def on_message(message):
                     if(diff < dummy):
                         dummy = diff
                         save_line = line
-                await message.channel.send("p!catch " + save_line)
+                if(prefs["custom_list"] == "True"):
+                    if(save_line in custom_list):
+                        await message.channel.send("p!catch " + save_line)
+                        if (save_line not in file_read("User", "caught.txt")):
+                            file_append("User","caught.txt",save_line)
+                            
+                else:
+                    await message.channel.send("p!catch " + save_line)
+                    if (save_line not in file_read("User", "caught.txt")):
+                        file_append("User","caught.txt",save_line)
             elif(prefs["hash_type"] == "dhash"):
                 for line in ddata:
                     compare_hex = int(str(rdhash), 16)
@@ -170,6 +193,13 @@ async def on_message(message):
                 if(prefs["custom_list"] == "True"):
                     if(save_line in custom_list):
                         await message.channel.send("p!catch " + save_line)
+                        if (save_line not in file_read("User", "caught.txt")):
+                            file_append("User","caught.txt",save_line)
+                else:
+                    await message.channel.send("p!catch " + save_line)
+                    if (save_line not in file_read("User", "caught.txt")):
+                        file_append("User","caught.txt",save_line)      
+                        
                     else:
                         return
             else:
@@ -211,5 +241,12 @@ async def list_state(message, state):
             await message.channel.send("Custom list enabled. Please restart the bot for changes to take effect")
         elif(state == "False"):
             await message.channel.send("Custom list disabled. Please restart the bot for changes to take effect")
-
+@client.command()
+async def caught(message):
+    l = file_read("User", "caught.txt")
+    for line in l:
+        print(line)
+@client.command()
+async def clear(message):
+    clear_file("User", "caught.txt")
 client.run(prefs["token"], bot=False)
