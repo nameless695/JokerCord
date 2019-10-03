@@ -114,7 +114,7 @@ with open (path + '/User/customs.json') as c:
 #Ready
 @client.event
 async def on_ready():
-    print("JokerCord is connected and running. Version : BETA 0.0.3")
+    print("JokerCord is connected and running. Version : BETA 0.0.4")
     if(prefs["auto_spam"] == "True"):
         while(1):
             #try:
