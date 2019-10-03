@@ -79,6 +79,12 @@ To run the bot you need to open your System terminal and run
 python3 /Path/to/the/folder/joker.py
 ```
 Please run it inside the Bot folder. 
+
+**Getting your token**
+
+To get your discord token: [Tutorial](https://discordhelp.net/discord-token)
+To get a channel ID, first enable discord developer mode by accesing Settings>Appearance>Enable developer mode
+
 ## Contributing
 Any bugs you find please consider sending them. Do notice this bot is in a very early beta stage so not all names will be correct.
 
