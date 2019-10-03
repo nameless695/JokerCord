@@ -64,7 +64,7 @@ Then run it with python3:
 python3 joker.py
 ```
 **For Windows**
-Firstly make sure to download Python from the link provided below. When installing check the box that says *add Python to Path*.
+Firstly make sure to download Python from the link provided above. When installing check the box that says *add Python to Path*.
 After it finishes installing, you can open the Windows console by pressing <kbd>⌘R</kbd> and typing
 ```bash
 cmd
