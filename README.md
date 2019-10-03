@@ -2,6 +2,8 @@
 
 Welcome to JokerCord Pokécord SelfBot. This bot has been made by JokerWare and it is aimed for cheating the PokéCord Discord bot. Please be aware I am not responsible for any bans or problems caused by the usage of this bot. Use at your own risk.
 
+**ATTENTION. Until further notice, the bot only catches Pokemons in the same server of which "spam_channel" pertains.**
+
 ## Installation
 
 Just make sure to have installed the last Python version. You can download it here: 
