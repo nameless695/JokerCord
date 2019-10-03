@@ -114,7 +114,7 @@ with open (path + '/User/customs.json') as c:
 #Ready
 @client.event
 async def on_ready():
-    print("JokerCord is connected and running. Version : BETA 0.0.4")
+    print("JokerCord is connected and running. Version : BETA 0.0.3")
     if(prefs["auto_spam"] == "True"):
         while(1):
             #try:
@@ -138,8 +138,11 @@ async def on_message(message):
     except IndexError:
         ev = 0
     #Check if message is from Pokecord Spawn
-    ch = client.get_channel(int(prefs["auto_spam_channel"]))
-    if (message.author.id != client.user.id and ev == 1 and (ch in message.guild.channels)): #and "A wild" in message.content):
+    if(prefs["auto_spam_channel"] == ""):
+        ch = None
+    else:
+        ch = client.get_channel(int(prefs["auto_spam_channel"]))
+    if (message.author.id != client.user.id and ev == 1 and (ch in message.guild.channels or ch is None)): #and "A wild" in message.content):
         
         try:
             url = embed.image.url
