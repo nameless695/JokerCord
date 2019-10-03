@@ -139,10 +139,11 @@ async def on_message(message):
         ev = 0
     #Check if message is from Pokecord Spawn
     if(prefs["auto_spam_channel"] == ""):
-        ch = None
+        print("PLEASE TYPE IN A CHANNEL ID BY EDITING preferences.json AND ADDING SOME ID WITHIN 'auto_spam_channel'")
+        return
     else:
         ch = client.get_channel(int(prefs["auto_spam_channel"]))
-    if (message.author.id != client.user.id and ev == 1 and (ch in message.guild.channels or ch is None)): #and "A wild" in message.content):
+    if (message.author.id != client.user.id and ev == 1 and (ch in message.guild.channels)): #and "A wild" in message.content):
         
         try:
             url = embed.image.url
