@@ -83,6 +83,7 @@ Please run it inside the Bot folder.
 **Getting your token**
 
 To get your discord token: [Tutorial](https://discordhelp.net/discord-token)
+
 To get a channel ID, first enable discord developer mode by accesing Settings>Appearance>Enable developer mode
 
 ## Contributing
