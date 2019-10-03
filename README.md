@@ -28,7 +28,7 @@ Adds every Pokemon in the list. Please separate each Pokemon with a comma ","
 ```bash
 _caught
 ```
-Prints every caught pokemon since last caught.txt clearing.
+Prints every caught pokemon since last caught.txt clearing. (In console)
 ```bash
 _clear
 ```
