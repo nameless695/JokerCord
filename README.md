@@ -23,7 +23,14 @@ Adds specified Pokemon to the catch list.
 _add_bulk Pokemon1,Pokemon2,Pokemon3,Pokemon4...
 ```
 Adds every Pokemon in the list. Please separate each Pokemon with a comma ","
-
+```bash
+_caught
+```
+Prints every caught pokemon since last caught.txt clearing.
+```bash
+_clear
+```
+Empties caught.txt
 ## Beginner Guide
 If you wanna use this bot, just click on the green button that says "Clone or Download" and select Download to Zip. Extract the folder anywhere you like.
 
