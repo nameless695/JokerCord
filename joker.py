@@ -253,4 +253,5 @@ async def caught(message):
 @client.command()
 async def clear(message):
     clear_file("User", "caught.txt")
+    await message.channel.send("Caught.txt file has been cleared.")
 client.run(prefs["token"], bot=False)
