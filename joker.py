@@ -152,7 +152,7 @@ async def on_message(message):
                         return
             except TypeError:
                     return
-            print(url)
+            #print(url)
             #Open image and save it to JPG
             openimg = open(path + '/Assets/pokemon.jpg','wb')
             openimg.write(requests.get(url).content)
