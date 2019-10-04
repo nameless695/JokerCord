@@ -33,6 +33,7 @@ Prints every caught pokemon since last caught.txt clearing. (In console)
 _clear
 ```
 Empties caught.txt
+
 ## Beginner Guide
 If you wanna use this bot, just click on the green button that says "Clone or Download" and select Download to Zip. Extract the folder anywhere you like.
 
