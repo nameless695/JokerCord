@@ -4,6 +4,7 @@ Welcome to JokerCord Pokécord SelfBot. This bot has been made by JokerWare and 
 
 **ATTENTION. Until further notice, the bot only catches Pokemons in the same server of which "spam_channel" pertains. PLEASE type a channel ID when the bot asks so, or else the bot will not work. This is being worked on and will be fixed in a future update.**
 
+This bot is under heavy development. I am aware not all names are correct and I'm working to find a solution as soon as possible.
 ## Installation
 
 Just make sure to have installed the last Python version. You can download it here: 
