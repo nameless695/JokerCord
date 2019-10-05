@@ -74,12 +74,10 @@ cmd
 ```
 In the search box. After the console opens, you can install each library by typing:
 ```bash
-pip install discord.py
+pip3 install discord.py && pip3 install dhash && pip3 install imagehash && pip3 install requests && pip3 install python-resize-image && pip3 install PIL
 ```
 **NOTE**
 This will not work if you didn't add Python to the PATH as referenced before.
-Replacing discord.py with the library name.
-Please if you installed Python in a different folder than C:\Python\ type that path instead.
 After installing all the dependencies, just close the terminal and open your File Manager. Go to the Downloaded folder and double click joker.py. You're done!
 
 ## Usage
