@@ -55,7 +55,7 @@ sudo apt-get install python3 && sudo apt-get install python3-pip
 ```
 To install the required libraries, simply run pip as follows:
 ```bash
-pip3 install discord.py && pip3 install dhash && pip3 install imagehash && pip3 install requests && pip3 install python-resize-image && pip3 install PIL
+pip3 install discord.py && pip3 install dhash && pip3 install imagehash && pip3 install requests && pip3 install python-resize-image && pip3 install pillow
 ```
 Lastly, to run JokerCord navigate to the downloaded folder:
 ```bash
@@ -74,7 +74,7 @@ cmd
 ```
 In the search box. After the console opens, you can install each library by typing:
 ```bash
-pip3 install discord.py && pip3 install dhash && pip3 install imagehash && pip3 install requests && pip3 install python-resize-image && pip3 install PIL
+pip3 install discord.py && pip3 install dhash && pip3 install imagehash && pip3 install requests && pip3 install python-resize-image && pip3 install pillow
 ```
 **NOTE**
 This will not work if you didn't add Python to the PATH as referenced before.
