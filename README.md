@@ -9,7 +9,7 @@ Welcome to JokerCord Pokécord SelfBot. This bot has been made by JokerWare and 
 
 This bot is under heavy development. I am aware not all names are correct and I'm working to find a solution as soon as possible. This requires A LOT of research from my part and I'm currently studying a degree so my time is limited, please take that into account. Lastly, let me thank you for stopping by and giving my project a shot. Remember that contributions are always appreciated. <3
 
-##Current status
+## Current status
 
 Stable version. Working on a GUI
 
