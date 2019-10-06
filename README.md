@@ -1,4 +1,4 @@
-#Current status
+#Status
 
 Stable version. Working on a GUI
 
