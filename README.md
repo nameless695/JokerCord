@@ -1,5 +1,4 @@
-#Status
-
+##Current status
 Stable version. Working on a GUI
 
 # JokerCord
