@@ -1,3 +1,6 @@
+## Current status
+This is how the GUI is looking so far!
+![JokerCord Web Interface](https://cdn1.imggmi.com/uploads/2019/10/7/c8140562380202dbcc83fff1881bada7-full.png)
 
 # JokerCord
 
@@ -9,9 +12,6 @@ Welcome to JokerCord Pokécord SelfBot. This bot has been made by JokerWare and 
 
 This bot is under heavy development. I am aware not all names are correct and I'm working to find a solution as soon as possible. This requires A LOT of research from my part and I'm currently studying a degree so my time is limited, please take that into account. Lastly, let me thank you for stopping by and giving my project a shot. Remember that contributions are always appreciated. <3
 
-## Current status
-
-Stable version. Working on a GUI
 
 ## Installation
 
