@@ -1,6 +1,6 @@
 ## NEW VERSION
 
-**To manage the bost, go to your browser of preference after running joker.py and type http://localhost:5555**
+**To manage the bot, go to your browser of preference after running joker.py and type http://localhost:5555**
 
 # JokerCord
 
