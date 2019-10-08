@@ -1,6 +1,7 @@
 ## NEW VERSION - 10/Oct/2019
 
 **To manage the bot, go to your browser of preference after running joker.py and type http://localhost:5555**
+Note: Due to an unknown reason, many pokemons are not being detected correctly. I'm working on fixing the problem.
 
 # JokerCord
 
