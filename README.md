@@ -13,6 +13,17 @@ Welcome to JokerCord Pokécord SelfBot. This bot has been made by JokerWare and 
 
 This bot is under heavy development. I am aware not all names are correct and I'm working to find a solution as soon as possible. This requires A LOT of research from my part and I'm currently studying a degree so my time is limited, please take that into account. Lastly, let me thank you for stopping by and giving my project a shot. Remember that contributions are always appreciated. <3
 
+---------------------------
+What is JokerCord? JokerCord is a project made by joker-ware (a.k.a SteeW) to help people automatize and get advantage on the discord Pokecord bot. It comes with an useful built in Web Interface, which helps the user manage the bot. Currently, this is maintained only by one person, so any issue, idea or suggestion you make is more than welcome here. 
+
+Functionalities:
+- Auto catch
+- Set custom list to catch only some Pokemon's
+- Modern Web Interface for easy management
+- Auto spam (Customizable text and interval!)
+More things are going to be added as the development progresses. Remember, if you have any idea don't hesitate to post it on Issues!
+
+
 
 ## Installation
 
