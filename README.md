@@ -74,7 +74,7 @@ After you start joker.py, navigate to http://localhost:5555 to manage the bot, a
 
 To get your discord token: [Tutorial](https://discordhelp.net/discord-token)
 
-To get a channel ID, first enable discord developer mode by accesing Settings>Appearance>Enable developer mode
+To get a channel ID, first enable discord developer mode by accesing Settings>Appearance>Enable developer mode ,and then right click on any channel and select ID.
 
 ## Contributing
 Any bugs you find please consider sending them. Do notice this bot is in a very early beta stage so not all names will be correct.
