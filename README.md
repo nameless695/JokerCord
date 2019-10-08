@@ -87,3 +87,10 @@ Any bugs you find please consider sending them. Do notice this bot is in a very 
 - [Requests](https://pypi.org/project/requests/)
 - [Resizeimage](https://pypi.org/project/python-resize-image/)
 - [PIL](https://pypi.org/project/Pillow/)
+
+## Some captures!
+[Caught pokemons list](https://cdn1.imggmi.com/uploads/2019/10/8/3d0d55b3715c804ca6b8936d1fd8fc5e-full.png)
+[Caught pokemon](https://cdn1.imggmi.com/uploads/2019/10/8/fe7647e7e60dff40317d735cdf3366da-full.png)
+[Preferences](https://cdn1.imggmi.com/uploads/2019/10/8/6358168da65f3d0427d483a7efeb3702-full.png)
+[Custom List](https://cdn1.imggmi.com/uploads/2019/10/8/47621012cf4b164f3a6cc3a5cfd97034-full.png)
+[Homepage](https://cdn1.imggmi.com/uploads/2019/10/8/fcef494ae5630ecdb4030fd909583cbc-full.png)
