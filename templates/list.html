@@ -2,6 +2,7 @@
 
 {% block body %}
     {% for line in l %}
+    {% set line = line.lower() %}
         {% if line in legs %}
             {% set line_name = line + " - LEGENDARY" %}
         {% else %}
