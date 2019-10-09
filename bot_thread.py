@@ -1,16 +1,14 @@
 import discord
 from discord.ext.commands import Bot
 import asyncio
-import dhash
-import imagehash
 import json
 import requests
 import time
-from resizeimage import resizeimage
 from discord.ext import commands
 from PIL import Image
 import sys, os
 import random
+import hashlib
 
 
 #Define write to json
@@ -52,31 +50,23 @@ with open (path + "/preferences.json") as p:
 client = commands.Bot(command_prefix='_')
 
 #Defines
-def getpHash(img):
-    io = Image.open(img)
-    hashp = imagehash.phash(io)
-    return hashp
-def getdHash(img):
-    io = Image.open(img)
-    hashd = imagehash.dhash(io)
-    return hashd
+def gethash(img):
+    with open (img, "rb") as h:
+        md = hashlib.md5(h.read()).hexdigest()
+        h.close()
+    return md
 ##########
 
 #Lists
-with open (path + '/Lists/phash.json') as pd:
-    pdata = json.load(pd)
-with open (path + '/Lists/dhash.json') as dd:
-    ddata = json.load(dd)
-with open (path + '/User/customs.json') as c:
-    custom_list = json.load(c)
-
+with open (path + '/Lists/hashes.json') as h:
+    hashdata = json.load(h)
 
 #End
 
 #Ready
 @client.event
 async def on_ready():
-    print("JokerCord is connected and running. Version : BETA 0.0.4")
+    print("JokerCord is connected and running. Version : BETA 0.0.4b")
     try:
         if(prefs["auto_spam"] == "True"):
             while(1):
@@ -121,100 +111,37 @@ async def on_message(message):
             openimg = open(path + '/Assets/pokemon.jpg','wb')
             openimg.write(requests.get(url).content)
             openimg.close()
+            await asyncio.sleep(1)
             
 
                 #Get hashes
 
-            rphash = getpHash(path + '/Assets/pokemon.jpg')
-            rdhash = getdHash(path + '/Assets/pokemon.jpg')
-
+            mdhash = gethash(path + '/Assets/pokemon.jpg')
             #Compare hashes with the lists
-            dummy = 100
             save_line = None
-            if(prefs["hash_type"] == "phash"):
-
-                for line in pdata:
-                    compare_hex = int(str(rphash), 16)
-                    compare_file = int(pdata[line], 16)
-                    diff = dhash.get_num_bits_different(compare_hex,compare_file)
-                    if(diff < dummy):
-                        dummy = diff
-                        save_line = line.lower()
-                if(prefs["custom_list"] == "True"):
-                    if(save_line in custom_list):
-                        await message.channel.send("p!catch " + save_line)
-                        if (save_line not in file_read("User", "caught.txt")):
-                            file_append("User","caught.txt",save_line)
-                            
-                else:
+            
+            for i in hashdata:
+                
+                if (hashdata[i] == mdhash):
+                    save_line = i
+                    break
+            
+            
+            if(prefs["custom_list"] == "True"):
+                if(save_line in custom_list):
                     await message.channel.send("p!catch " + save_line)
                     if (save_line not in file_read("User", "caught.txt")):
                         file_append("User","caught.txt",save_line)
-            elif(prefs["hash_type"] == "dhash"):
-                for line in ddata:
-                    compare_hex = int(str(rdhash), 16)
-                    compare_file = int(ddata[line], 16)
-                    diff = dhash.get_num_bits_different(compare_hex,compare_file)
-                    if(diff < dummy):
-                        dummy = diff
-                        save_line = line.lower()
-                if(prefs["custom_list"] == "True"):
-                    if(save_line in custom_list):
-                        await message.channel.send("p!catch " + save_line)
-                        if (save_line not in file_read("User", "caught.txt")):
-                            file_append("User","caught.txt",save_line)
-                else:
-                    await message.channel.send("p!catch " + save_line)
-                    if (save_line not in file_read("User", "caught.txt")):
-                        file_append("User","caught.txt",save_line)      
-                        
-                    else:
-                        return
             else:
-                await message.channel.send("There has been an error with the config file. Please refer to preferences.json or contact the developer. Please make sure 'hash_type' is either phash or dhash.")
+                await message.channel.send("p!catch " + save_line)
+                if (save_line not in file_read("User", "caught.txt")):
+                    file_append("User","caught.txt",save_line)      
+                    
+                else:
+                    return
         except AttributeError:
             return
-    await client.process_commands(message)
+    
 
-@client.command()
-async def add(message, pokemon):
-    if(pokemon in pdata):
-        if(item in custom_list):
-                pass
-        else:
-            add_pokemon(pokemon)
-            await message.channel.send("Pokemon " + pokemon + " added to the catch list")
-    else:
-        await message.channel.send("Pokemon not found. Please type it with the first letter being capital. Ex.: 'Piplup'")
-@client.command()
-async def add_bulk(message, pokemon_bulk):
-    bulk = pokemon_bulk.split(",")
-    for item in bulk:
-        if(item in pdata):
-            if(item in custom_list):
-                pass
-            else:
-                add_pokemon(item.replace(" ", ""))
-                
-        else:
-            pass
-    await message.channel.send("Bulk pokemon added to the list. Please restart the bot to apply changes.")
-@client.command()
-async def list_state(message, state):
-    if (state != "True" and state != "False"):
-        await message.channel.send("Please type True or False")
-    else:
-        write_json("custom_list", state)
-        if(state == "True"):
-            await message.channel.send("Custom list enabled. Please restart the bot for changes to take effect")
-        elif(state == "False"):
-            await message.channel.send("Custom list disabled. Please restart the bot for changes to take effect")
-@client.command()
-async def caught(message):
-    l = file_read("User", "caught.txt")
-    for line in l:
-        print(line)
-@client.command()
-async def clear(message):
-    clear_file("User", "caught.txt")
-    await message.channel.send("Caught.txt file has been cleared.")
+
+ 

@@ -26,7 +26,8 @@ legendaries = ['arceus', 'articuno', 'azelf', 'celebi', 'cobalion', 'cosmoem', '
 async def startClient():
     try:
         await bot_thread.client.start(pr_l["token"], bot=False)
-    except:
+    except Exception as e:
+        print(e)
         print("Something went wrong with the token. If this is the first time you use this bot, please go to http://localhost:5555 and edit your preferences.")
 
 def loop_in_thread(loop):
@@ -82,7 +83,7 @@ def custom_list():
     if request.method == "POST":
         if(request.form.get("new_pokemon")):
             n_p = request.form.get("new_pokemon")
-            with open(pth_r + "/Lists/phash.json") as check:
+            with open(pth_r + "/Lists/hashes.json") as check:
                 check_read = json.load(check)
                 check.close()
             if (n_p in check_read):
