@@ -1,4 +1,4 @@
-## NEW VERSION - 10/Oct/2019
+## NEW VERSION - 8/Oct/2019
 
 **To manage the bot, go to your browser of preference after running joker.py and type http://localhost:5555**
 
