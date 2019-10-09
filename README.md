@@ -3,6 +3,7 @@
 **To manage the bot, go to your browser of preference after running joker.py and type http://localhost:5555**
 Note: Due to an unknown reason, many pokemons are not being detected correctly. I'm working on fixing the problem.
 
+Please if you come from version 0.0.3 (without GUI) make sure to install the **flask** module.
 # JokerCord
 
 Check future plans here! https://github.com/joker-ware/JokerCord/wiki
