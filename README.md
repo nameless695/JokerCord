@@ -22,7 +22,7 @@ Welcome to JokerCord Pokécord SelfBot. This bot has been made by JokerWare and 
 
 **ATTENTION. Until further notice, the bot only catches Pokemons in the same server of which "spam_channel" pertains. This is being worked on and will be fixed in a future update.**
 
-This bot is under heavy development. I am aware not all names are correct and I'm working to find a solution as soon as possible. This requires A LOT of research from my part and I'm currently studying a degree so my time is limited, please take that into account. Lastly, let me thank you for stopping by and giving my project a shot. Remember that contributions are always appreciated. <3
+This bot is under heavy development. I am aware some bugs can occur and there are things left to do (many of them are already being worked on), so let me thank you for stopping by and giving my project a shot. Remember that contributions are always appreciated. <3
 
 ---------------------------
 What is JokerCord? JokerCord is a project made by joker-ware (a.k.a SteeW) to help people automatize and get advantage on the discord Pokecord bot. It comes with an useful built in Web Interface, which helps the user manage the bot. Currently, this is maintained only by one person, so any issue, idea or suggestion you make is more than welcome here. 
