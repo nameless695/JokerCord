@@ -1,9 +1,19 @@
 ## NEW VERSION - 10/Oct/2019
 
 **To manage the bot, go to your browser of preference after running joker.py and type http://localhost:5555**
-Note: Due to an unknown reason, many pokemons are not being detected correctly. I'm working on fixing the problem.
+
 
 Please if you come from version 0.0.3 (without GUI) make sure to install the **flask** module.
+
+
+**FIXED POKEMON DETECTION ON 0.0.4b**
+Dhash, imagehash, and python-resize-image are no longer needed. You can delete them by doing:
+```bash
+pip3 uninstall dhash imagehash python-resize-image
+```
+In your OS's terminal.
+
+
 # JokerCord
 
 Check future plans here! https://github.com/joker-ware/JokerCord/wiki
@@ -57,7 +67,7 @@ sudo apt-get install python3 && sudo apt-get install python3-pip
 ```
 To install the required libraries, simply run pip as follows:
 ```bash
-pip3 install discord.py dhash imagehash requests python-resize-image pillow flask
+pip3 install discord.py requests pillow flask
 ```
 Lastly, to run JokerCord navigate to the downloaded folder:
 ```bash
@@ -76,7 +86,7 @@ cmd
 ```
 In the search box. After the console opens, you can install each library by typing:
 ```bash
-pip3 install discord.py dhash imagehash requests python-resize-image pillow flask
+pip3 install discord.py requests pillow flask
 ```
 **NOTE**
 This will not work if you didn't add Python to the PATH as referenced before.
