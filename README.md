@@ -12,6 +12,7 @@ Dhash, imagehash, and python-resize-image are no longer needed. You can delete t
 pip3 uninstall dhash imagehash python-resize-image
 ```
 In your OS's terminal.
+
 **Added support to enable/disable guilds on which to catch pokemons.**
 To enable or disable a guild, go to the bot management page and select Settings>Enable/Disable Guilds
 
