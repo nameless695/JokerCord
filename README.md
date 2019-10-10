@@ -15,6 +15,7 @@ In your OS's terminal.
 
 
 # JokerCord
+If you like my work and want to support it, the best way is by adding a star to this project (top of the page) you don't know how happy that makes me. It also tells me to continue working on this project. Thank you!
 
 Check future plans here! https://github.com/joker-ware/JokerCord/wiki
 
