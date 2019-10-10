@@ -77,6 +77,32 @@ def home():
 def update():
     if request.method == "POST":
         return render_template("update.html")
+@app.route("/disable_guild/<string:id>")
+def disable_guild(id):
+    with open (pth_r + "/User/guilds.json", "r") as glds:
+        disable = json.load(glds)
+        glds.close()
+    disable[id][0] = "False"
+    with open (pth_r + "/User/guilds.json", "w") as glds:
+        json.dump(disable, glds)
+        glds.close()
+    return redirect(url_for("custom_guilds"))
+@app.route("/enable_guild/<string:id>")
+def enable_guild(id):
+    with open (pth_r + "/User/guilds.json", "r") as glds:
+        enable = json.load(glds)
+        glds.close()
+    enable[id][0] = "True"
+    with open (pth_r + "/User/guilds.json", "w") as glds:
+        json.dump(enable, glds)
+        glds.close()
+    return redirect(url_for("custom_guilds"))
+@app.route("/custom_guilds")
+def custom_guilds():
+    with open (pth_r + "/User/guilds.json") as glds:
+        guilds = json.load(glds)
+        glds.close()
+    return render_template("custom_guilds.html", guilds=guilds)#, icons=icons, ids=ids)
 @app.route("/custom_list", methods=['GET', 'POST'])
 def custom_list():
     error = False

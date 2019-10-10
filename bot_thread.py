@@ -45,6 +45,9 @@ path = os.path.dirname(os.path.abspath(sys.argv[0])).replace("/WebServer", "")
 #Presets
 with open (path + "/preferences.json") as p:
     prefs = json.load(p)
+with open (path + "/User/guilds.json") as g:
+    guild_list = json.load(g)
+    g.close()
 #Start
 #Pref
 client = commands.Bot(command_prefix='_')
@@ -66,6 +69,19 @@ with open (path + '/Lists/hashes.json') as h:
 #Ready
 @client.event
 async def on_ready():
+    user_guilds = client.guilds
+    for guild in user_guilds:
+        if(guild_list[str(guild.id)]):
+            guild_list[str(guild.id)] = [guild_list[str(guild.id)][0], guild.name, guild.icon]
+        else:
+            guild_list[str(guild.id)] = ["True", guild.name, guild.icon]
+    try:
+        with open (path + "/User/guilds.json", 'w') as clr_guilds:
+            clr_guilds.write("{}")
+            clr_guilds.close()
+        with open(path + "/User/guilds.json", 'w') as jfil:
+            json.dump(guild_list, jfil)
+    except Exception as e: print(e)
     print("JokerCord is connected and running. Version : BETA 0.0.4b")
     try:
         if(prefs["auto_spam"] == "True"):
@@ -92,12 +108,7 @@ async def on_message(message):
     except IndexError:
         ev = 0
     #Check if message is from Pokecord Spawn
-    if(prefs["auto_spam_channel"] == ""):
-        print("PLEASE TYPE IN A CHANNEL ID BY EDITING preferences.json AND ADDING SOME ID WITHIN 'auto_spam_channel'")
-        return
-    else:
-        ch = client.get_channel(int(prefs["auto_spam_channel"]))
-    if (message.author.id != client.user.id and ev == 1 and (ch in message.guild.channels)): #and "A wild" in message.content):
+    if (message.author.id != client.user.id and ev == 1 and (guild_list[str(message.guild.id)][0] == "True")): #and "A wild" in message.content):
         
         try:
             url = embed.image.url
