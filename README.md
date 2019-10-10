@@ -1,4 +1,4 @@
-## NEW VERSION - 8/Oct/2019
+## NEW VERSION - 08/Oct/2019
 
 **To manage the bot, go to your browser of preference after running joker.py and type http://localhost:5555**
 
@@ -12,7 +12,8 @@ Dhash, imagehash, and python-resize-image are no longer needed. You can delete t
 pip3 uninstall dhash imagehash python-resize-image
 ```
 In your OS's terminal.
-
+**Added support to enable/disable guilds on which to catch pokemons.**
+To enable or disable a guild, go to the bot management page and select Settings>Enable/Disable Guilds
 
 # JokerCord
 If you like my work and want to support it, the best way is by adding a star to this project (top of the page) you don't know how happy that makes me. It also tells me to continue working on this project. Thank you!
