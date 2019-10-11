@@ -2,7 +2,7 @@
 
 **To manage the bot, go to your browser of preference after running joker.py and type http://localhost:5555**
 
-## Please, if this is the first time you use this bot, select the guilds (or servers) where you want this bot to work, or else it will catch on EVERY server you are in. Go to the webpage and navigate to settings to change it.
+## Please, if this is the first time you use this bot, select the guilds (or servers) where you want this bot to work, all of them come disabled by default. Go to the webpage and navigate to settings to enable them.
 
 
 Please if you come from version 0.0.3 (without GUI) make sure to install the **flask** module.
