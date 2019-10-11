@@ -18,6 +18,10 @@ In your OS's terminal.
 **Added support to enable/disable guilds on which to catch pokemons.**
 To enable or disable a guild, go to the bot management page and select Settings>Enable/Disable Guilds
 
+**Added support to set custom catching delay for each server**
+
+Can access it on settings.
+
 # JokerCord
 If you like my work and want to support it, the best way is by adding a star to this project (top of the page) you don't know how happy that makes me. It also tells me to continue working on this project. Thank you!
 
