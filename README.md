@@ -37,6 +37,7 @@ Functionalities:
 - Modern Web Interface for easy management
 - Auto spam (Customizable text and interval!)
 - Enable/Disable auto catching on certain servers
+-Set custom catch delay for each server
 
 More things are going to be added as the development progresses. Remember, if you have any idea don't hesitate to post it on Issues!
 
