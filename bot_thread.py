@@ -10,6 +10,14 @@ import sys, os
 import random
 import hashlib
 
+legendaries = ['arceus', 'articuno', 'azelf', 'celebi', 'cobalion', 'cosmoem', 'cosmog', 'cresselia',
+            'darkrai', 'deoxys', 'dialga', 'diancie', 'Entei', 'genesect', 'giratina', 'groudon',
+            'heatran', 'ho-Oh', 'hoopa', 'jirachi', 'Keldeo', 'kyogre', 'kyurem', 'landorus',
+            'latias', 'latios', 'lugia', 'lunala', 'Magearna', 'manaphy', 'marshadow', 'meloetta',
+            'mesprit', 'mew', 'mewtwo', 'moltres', 'Necrozma', 'palkia', 'phione', 'raikou',
+            'rayquaza', 'regice', 'regigigas', 'regirock', 'registeel', 'reshiram', 'shaymin', 'silvally',
+            'solgaleo', 'suicune', 'tapu bulu', 'tapu fini', 'tapu koko', 'tapu lele', 'terrakion', 'thundurus',
+            'tornadus', 'type: null', 'uxie', 'victini', 'virizion', 'volcanion', 'xerneas', 'yveltal', 'naganadel']
 
 #Define write to json
 def file_read(folder, fname):
@@ -123,7 +131,7 @@ async def on_message(message):
             openimg = open(path + '/Assets/pokemon.jpg','wb')
             openimg.write(requests.get(url).content)
             openimg.close()
-            await asyncio.sleep(int(guild_list[str(message.guild.id)][3]))
+            
             
 
                 #Get hashes
@@ -137,8 +145,10 @@ async def on_message(message):
                 if (hashdata[i] == mdhash):
                     save_line = i
                     break
-            
-            
+            if(save_line in legendaries):
+                await asyncio.sleep(2)
+            else:
+                await asyncio.sleep(int(guild_list[str(message.guild.id)][3]))
             if(prefs["custom_list"] == "True"):
                 if(save_line in custom_list):
                     await message.channel.send("p!catch " + save_line)
