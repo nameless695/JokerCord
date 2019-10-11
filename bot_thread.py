@@ -72,10 +72,10 @@ async def on_ready():
     user_guilds = client.guilds
     for guild in user_guilds:
         try:
-            if(guild_list[str(guild.id)]):
-                guild_list[str(guild.id)] = [guild_list[str(guild.id)][0], guild.name, guild.icon]
+            if(guild_list[str(guild.id)] and guild_list[str(guild.id)][3]):
+                guild_list[str(guild.id)] = [guild_list[str(guild.id)][0], guild.name, guild.icon, guild_list[str(guild.id)][3]]
         except:
-            guild_list[str(guild.id)] = ["False", guild.name, guild.icon]
+            guild_list[str(guild.id)] = ["True", guild.name, guild.icon, "2"]
     try:
         with open (path + "/User/guilds.json", 'w') as clr_guilds:
             clr_guilds.write("{}")
@@ -123,7 +123,7 @@ async def on_message(message):
             openimg = open(path + '/Assets/pokemon.jpg','wb')
             openimg.write(requests.get(url).content)
             openimg.close()
-            await asyncio.sleep(1)
+            await asyncio.sleep(int(guild_list[str(message.guild.id)][3]))
             
 
                 #Get hashes
@@ -141,11 +141,11 @@ async def on_message(message):
             
             if(prefs["custom_list"] == "True"):
                 if(save_line in custom_list):
-                    await message.channel.send("p!catch " + save_line.lower())
+                    await message.channel.send("p!catch " + save_line)
                     if (save_line not in file_read("User", "caught.txt")):
                         file_append("User","caught.txt",save_line)
             else:
-                await message.channel.send("p!catch " + save_line.lower())
+                await message.channel.send("p!catch " + save_line)
                 if (save_line not in file_read("User", "caught.txt")):
                     file_append("User","caught.txt",save_line)      
                     

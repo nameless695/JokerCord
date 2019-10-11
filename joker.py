@@ -28,8 +28,7 @@ async def startClient():
         await bot_thread.client.start(pr_l["token"], bot=False)
     except Exception as e:
         print(e)
-        if(e == "Improper token has been passed."):
-                print("Something went wrong with the token. If this is the first time you use this bot, please go to http://localhost:5555 and edit your preferences.")
+        print("Something went wrong with the token. If this is the first time you use this bot, please go to http://localhost:5555 and edit your preferences.")
 
 def loop_in_thread(loop):
     asyncio.set_event_loop(loop)
@@ -73,7 +72,16 @@ def home():
             pl = p.read().split(" ")
             p.close()
         return render_template("home.html", pokemons=(len(pl) - 2))
-
+@app.route("/delay/<string:g_id>/<string:dly>")
+def delay(g_id, dly):
+    with open (pth_r + "/User/guilds.json", "r") as glds:
+        d = json.load(glds)
+        glds.close()
+    d[g_id][3] = dly
+    with open (pth_r + "/User/guilds.json", "w") as glds:
+        json.dump(d, glds)
+        glds.close()
+    return redirect(url_for("custom_guilds"))
 @app.route("/update", methods=["POST"])
 def update():
     if request.method == "POST":
