@@ -28,7 +28,8 @@ async def startClient():
         await bot_thread.client.start(pr_l["token"], bot=False)
     except Exception as e:
         print(e)
-        print("Something went wrong with the token. If this is the first time you use this bot, please go to http://localhost:5555 and edit your preferences.")
+        if(e == "Improper token has been passed."):
+                print("Something went wrong with the token. If this is the first time you use this bot, please go to http://localhost:5555 and edit your preferences.")
 
 def loop_in_thread(loop):
     asyncio.set_event_loop(loop)
