@@ -114,10 +114,8 @@ Any bugs you find please consider sending them. Do notice this bot is in a very 
 
 ## Required libraries
 - [Discord.py](https://pypi.org/project/discord.py/)
-- [dHash](https://pypi.org/project/dhash/)
-- [ImageHash](https://pypi.org/project/ImageHash/)
+- [Flask](https://pypi.org/project/Flask/)
 - [Requests](https://pypi.org/project/requests/)
-- [Resizeimage](https://pypi.org/project/python-resize-image/)
 - [PIL](https://pypi.org/project/Pillow/)
 
 ## Some captures!
