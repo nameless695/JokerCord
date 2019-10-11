@@ -56,6 +56,9 @@ with open (path + "/preferences.json") as p:
 with open (path + "/User/guilds.json") as g:
     guild_list = json.load(g)
     g.close()
+with open (path + "/User/customs.json") as cs:
+            custom_list = json.load(cs)
+            cs.close()
 #Start
 #Pref
 client = commands.Bot(command_prefix='_')
