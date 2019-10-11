@@ -36,6 +36,7 @@ Functionalities:
 - Set custom list to catch only some Pokemon's
 - Modern Web Interface for easy management
 - Auto spam (Customizable text and interval!)
+- Enable/Disable auto catching on certain servers
 More things are going to be added as the development progresses. Remember, if you have any idea don't hesitate to post it on Issues!
 
 You can see some captures in the bottom of this Readme.
@@ -60,7 +61,7 @@ If you have never used Python, this will guide you through each step in order to
 
 First of all, identify your Operating System (Windows, GNU/Linux, MacOS...)
 
-## For Linux
+## For Linux / Mac OS
 Open a terminal session and run apt update:
 ```bash
 sudo apt-get update
