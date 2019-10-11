@@ -1,6 +1,7 @@
 {% extends 'layout.html' %}
 
 {% block body %}
+
 <div class="alert alert-warning" role="alert">
     Alert: Reboot the bot after changing this
   </div>
@@ -13,10 +14,45 @@
             {% set state = "Disabled" %}
         {% endif %}
         {% if state == "Enabled" %}
-        <span class="badge badge-success">{{state}} <li class="list-group-item">{{guilds[guild][1]}}  <img src= "https://cdn.discordapp.com/icons/{{guild}}/{{guilds[guild][2]}}.png" width="48" height="48"> <a href="disable_guild/{{guild}}" class="btn btn-danger">Disable</a><a href="enable_guild/{{guild}}" class="btn btn-success">Enable</a></li></span>
+        <span class="badge badge-success">{{state}} <div class="btn-group">
+                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Catch delay: {{guilds[guild][3]}} s
+                </button>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" href="/delay/{{guild}}/1">1 seconds</a>
+                  <a class="dropdown-item" href="/delay/{{guild}}/2">2 seconds</a>
+                  <a class="dropdown-item" href="/delay/{{guild}}/3">3 seconds</a>
+                  <a class="dropdown-item" href="/delay/{{guild}}/4">4 seconds</a>
+                  <a class="dropdown-item" href="/delay/{{guild}}/5">5 seconds</a>
+                  <a class="dropdown-item" href="/delay/{{guild}}/6">6 seconds</a>
+                  <a class="dropdown-item" href="/delay/{{guild}}/7">7 seconds</a>
+                  <a class="dropdown-item" href="/delay/{{guild}}/8">8 seconds</a>
+                  <a class="dropdown-item" href="/delay/{{guild}}/9">9 seconds</a>
+                  <a class="dropdown-item" href="/delay/{{guild}}/10">10 seconds</a>
+              </div> </div><li class="list-group-item">{{guilds[guild][1]}}  <img src= "https://cdn.discordapp.com/icons/{{guild}}/{{guilds[guild][2]}}.png" width="48" height="48"> <a href="disable_guild/{{guild}}" class="btn btn-danger">Disable</a><a href="enable_guild/{{guild}}" class="btn btn-success">Enable</a></li></span>
+        
+        
         {% elif state == "Disabled" %}
-        <span class="badge badge-danger">{{state}} <li class="list-group-item">{{guilds[guild][1]}}  <img src= "https://cdn.discordapp.com/icons/{{guild}}/{{guilds[guild][2]}}.png" width="48" height="48"> <a href="disable_guild/{{guild}}" class="btn btn-danger">Disable</a><a href="enable_guild/{{guild}}" class="btn btn-success">Enable</a></li></span>
+        <span class="badge badge-danger">{{state}} <div class="btn-group">
+                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Catch delay: {{guilds[guild][3]}} s
+                </button>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" href="/delay/{{guild}}/1">1 seconds</a>
+                  <a class="dropdown-item" href="/delay/{{guild}}/2">2 seconds</a>
+                  <a class="dropdown-item" href="/delay/{{guild}}/3">3 seconds</a>
+                  <a class="dropdown-item" href="/delay/{{guild}}/4">4 seconds</a>
+                  <a class="dropdown-item" href="/delay/{{guild}}/5">5 seconds</a>
+                  <a class="dropdown-item" href="/delay/{{guild}}/6">6 seconds</a>
+                  <a class="dropdown-item" href="/delay/{{guild}}/7">7 seconds</a>
+                  <a class="dropdown-item" href="/delay/{{guild}}/8">8 seconds</a>
+                  <a class="dropdown-item" href="/delay/{{guild}}/9">9 seconds</a>
+                  <a class="dropdown-item" href="/delay/{{guild}}/10">10 seconds</a>
+              </div></div> <li class="list-group-item">{{guilds[guild][1]}}  <img src= "https://cdn.discordapp.com/icons/{{guild}}/{{guilds[guild][2]}}.png" width="48" height="48"> <a href="disable_guild/{{guild}}" class="btn btn-danger">Disable</a><a href="enable_guild/{{guild}}" class="btn btn-success">Enable</a></li></span>
         {% endif %}
         {% endfor %} 
 </div>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 {% endblock %}
