@@ -75,7 +75,7 @@ async def on_ready():
             if(guild_list[str(guild.id)]):
                 guild_list[str(guild.id)] = [guild_list[str(guild.id)][0], guild.name, guild.icon]
         except:
-            guild_list[str(guild.id)] = ["True", guild.name, guild.icon]
+            guild_list[str(guild.id)] = ["False", guild.name, guild.icon]
     try:
         with open (path + "/User/guilds.json", 'w') as clr_guilds:
             clr_guilds.write("{}")
