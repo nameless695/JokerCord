@@ -25,6 +25,7 @@ legendaries = ['arceus', 'articuno', 'azelf', 'celebi', 'cobalion', 'cosmoem', '
 @asyncio.coroutine
 async def startClient():
     try:
+        print(pr_l["token"])
         await bot_thread.client.start(pr_l["token"], bot=False)
     except Exception as e:
         print(e)
