@@ -41,8 +41,10 @@ def add_pokemon(name):
         with open(pth_r + "/User/customs.json") as cs:
             jsdecoded = json.load(cs)
             jsdecoded[str(name)] = ""
+            cs.close()
         with open(pth_r + "/User/customs.json", 'w') as jfil:
             json.dump(jsdecoded, jfil)
+            jfil.close()
     except Exception as e: print(e)
 
 def file_del(file, item):
@@ -55,10 +57,9 @@ def file_del(file, item):
         json.dump(list_del, n)
         n.close()
 def restart():
-        import sys
+       
         print("Restarting")
 
-        import os
         os.execv(sys.executable, ['python3'] + sys.argv)
 
 @app.route("/")
