@@ -21,9 +21,9 @@ legendaries = ['arceus', 'articuno', 'azelf', 'celebi', 'cobalion', 'cosmoem', '
 
 #Define write to json
 def file_read(folder, fname):
-    catched = open(path + "/" + folder + "/" + fname, "r")
-    lines = catched.readlines()
-    catched.close()
+    caught = open(path + "/" + folder + "/" + fname, "r")
+    lines = caught.readlines()
+    caught.close()
     return lines
 def clear_file(folder, fname):
     open(path + "/" + folder + "/" + fname, 'w').close()
@@ -37,22 +37,27 @@ def add_pokemon(name):
         with open(path + "/User/customs.json") as cs:
             jsdecoded = json.load(cs)
             jsdecoded[str(name)] = ""
+            cs.close()
         with open(path + "/User/customs.json", 'w') as jfil:
             json.dump(jsdecoded, jfil)
+            jfil.close()
     except Exception as e: print(e)
 def write_json(wrtline, wrt):
     try:
         with open(path + "/preferences.json") as pr:
             jsdecoded = json.load(pr)
             jsdecoded[str(wrtline)] = str(wrt)
+            pr.close()
         with open(path + "/preferences.json", 'w') as jfil:
             json.dump(jsdecoded, jfil)
+            jfil.close()
     except Exception as e: print(e)
 #Path
 path = os.path.dirname(os.path.abspath(sys.argv[0])).replace("/WebServer", "")
 #Presets
 with open (path + "/preferences.json") as p:
     prefs = json.load(p)
+    p.close()
 with open (path + "/User/guilds.json") as g:
     guild_list = json.load(g)
     g.close()
@@ -74,6 +79,7 @@ def gethash(img):
 #Lists
 with open (path + '/Lists/hashes.json') as h:
     hashdata = json.load(h)
+    h.close()
 
 #End
 
@@ -93,6 +99,7 @@ async def on_ready():
             clr_guilds.close()
         with open(path + "/User/guilds.json", 'w') as jfil:
             json.dump(guild_list, jfil)
+            jfil.close()
     except Exception as e: print(e)
     print("JokerCord is connected and running. Version : BETA 0.0.4b")
     try:
