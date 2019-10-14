@@ -2,7 +2,7 @@
 
 This video covers the bot setup, not the Python installation.
 
-[![Video tutorial](https://www.google.com/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwjp4OGdw5zlAhVVD2MBHY94Bf4QjRx6BAgBEAQ&url=http%3A%2F%2Fwww.brandemia.org%2Fyoutube-ha-cambiado-su-logo-y-estas-son-las-razones&psig=AOvVaw2cWLe_zhP18DKdx6xQYyoa&ust=1571169116509362)](https://youtu.be/4Lqbk2k2fwk)
+[![Video tutorial](http://www.brandemia.org/sites/default/files/logo_youtube.jpg)](https://youtu.be/4Lqbk2k2fwk)
 
 ## NEW VERSION - 08/Oct/2019
 
