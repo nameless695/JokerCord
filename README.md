@@ -1,6 +1,6 @@
 # NEW: MacOS Tutorial video and PoC (Can be followed on other Operating Systems, but with some differences)
 
-[Tutorial video](https://youtu.be/4Lqbk2k2fwk)
+![Tutorial video](https://youtu.be/4Lqbk2k2fwk)
 
 ## NEW VERSION - 08/Oct/2019
 
