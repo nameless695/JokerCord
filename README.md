@@ -1,6 +1,8 @@
 # NEW: MacOS Tutorial video and PoC (Can be followed on other Operating Systems, but with some differences)
 
-![Tutorial video](https://youtu.be/4Lqbk2k2fwk)
+This video covers the bot setup, not the Python installation.
+
+[![Video tutorial](https://cdn1.imggmi.com/uploads/2019/10/8/fcef494ae5630ecdb4030fd909583cbc-full.png)](https://youtu.be/4Lqbk2k2fwk)
 
 ## NEW VERSION - 08/Oct/2019
 
