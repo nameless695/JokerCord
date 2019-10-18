@@ -161,11 +161,11 @@ async def on_message(message):
                 await asyncio.sleep(int(guild_list[str(message.guild.id)][3]))
             if(prefs["custom_list"] == "True"):
                 if(save_line in custom_list):
-                    await message.channel.send("p!catch " + save_line)
+                    await message.channel.send("p!catch " + save_line.lower())
                     if (save_line not in file_read("User", "caught.txt")):
                         file_append("User","caught.txt",save_line)
             else:
-                await message.channel.send("p!catch " + save_line)
+                await message.channel.send("p!catch " + save_line.lower())
                 if (save_line not in file_read("User", "caught.txt")):
                     file_append("User","caught.txt",save_line)      
                     
