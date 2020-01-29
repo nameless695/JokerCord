@@ -3,6 +3,17 @@ If you like my work and want to support it, you can donate here :)
 [![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://paypal.me/jokerware)
 
 
+
+# UPDATE IN PROGRESS 
+The bot is being updated and rewritten. Please add any suggestions in issues. Old suggestions will be considered too.
+Current objectives:
+Items marked with ~~this line~~ have already been completed.
+Items marked with *italic* are being discussed.
+1. Simplify setup of the bot
+2. Add the option to spam on multiple channels
+3. *Discard pokemons by IV*
+4. Make a video tutorial for Windows and Linux
+
 # NEW: MacOS Tutorial video and PoC (Can be followed on other Operating Systems, but with some differences)
 
 This video covers the bot setup, not the Python installation.
