@@ -4,7 +4,7 @@ If you like my work and want to support it, you can donate here :)
 
 
 
-# UPDATE IN PROGRESS 
+# UPDATE IN PROGRESS  29/01/2020
 The bot is being updated and rewritten. Please add any suggestions in issues. Old suggestions will be considered too.
 Current objectives:
 Items marked with ~~this line~~ have already been completed.
