@@ -9,8 +9,8 @@ The bot is being updated and rewritten. Please add any suggestions in issues. Ol
 Current objectives:
 Items marked with ~~this line~~ have already been completed.
 Items marked with *italic* are being discussed.
-1. Simplify setup of the bot
-2. Add the option to spam on multiple channels
+1. ~~Simplify setup of the bot~~
+2. ~~Add the option to spam on multiple channels~~
 3. *Discard pokemons by IV*
 4. Make a video tutorial for Windows and Linux
 
