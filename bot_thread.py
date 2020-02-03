@@ -9,6 +9,7 @@ from PIL import Image
 import sys, os
 import random
 import hashlib
+from threading import Thread
 
 legendaries = ['arceus', 'articuno', 'azelf', 'celebi', 'cobalion', 'cosmoem', 'cosmog', 'cresselia',
             'darkrai', 'deoxys', 'dialga', 'diancie', 'Entei', 'genesect', 'giratina', 'groudon',
@@ -61,6 +62,9 @@ with open (path + "/preferences.json") as p:
 with open (path + "/User/guilds.json") as g:
     guild_list = json.load(g)
     g.close()
+with open (path + "/User/channels.json") as ch:
+    channel_list = json.load(ch)
+    ch.close()
 with open (path + "/User/customs.json") as cs:
             custom_list = json.load(cs)
             cs.close()
@@ -69,6 +73,10 @@ with open (path + "/User/customs.json") as cs:
 client = commands.Bot(command_prefix='_')
 
 #Defines
+async def spamThread(channelInstance,delay):
+    while(True):
+        await channelInstance.send("Random text")
+        await asyncio.sleep(int(delay))
 def gethash(img):
     with open (img, "rb") as h:
         md = hashlib.md5(h.read()).hexdigest()
@@ -91,8 +99,23 @@ async def on_ready():
         try:
             if(guild_list[str(guild.id)] and guild_list[str(guild.id)][3]):
                 guild_list[str(guild.id)] = [guild_list[str(guild.id)][0], guild.name, guild.icon, guild_list[str(guild.id)][3]]
+                        
         except:
             guild_list[str(guild.id)] = ["False", guild.name, guild.icon, "2"]
+        finally:
+            for channel in guild.text_channels:
+                try:
+                    if(channel_list[str(channel.id)][1] == "True" or channel_list[str(channel.id)][1] == "False"):
+                        pass
+                except:
+                    channel_list[channel.id] = [channel.name+"@"+guild.name, "False", "5"]
+            with open (path + "/User/channels.json", 'w') as clr_channels:
+                clr_channels.write("{}")
+                clr_channels.close()
+
+            with open(path + "/User/channels.json", 'w') as jfil:
+                json.dump(channel_list, jfil)
+                jfil.close()
     try:
         with open (path + "/User/guilds.json", 'w') as clr_guilds:
             clr_guilds.write("{}")
@@ -101,22 +124,12 @@ async def on_ready():
             json.dump(guild_list, jfil)
             jfil.close()
     except Exception as e: print(e)
-    print("JokerCord is connected and running. Version : BETA 0.0.4b")
-    try:
-        if(prefs["auto_spam"] == "True"):
-            while(1):
-                #try:
-                if(prefs["auto_spam_interval"] == "R"):
-                    channel = client.get_channel(int(prefs["auto_spam_channel"]))
-                    await channel.send(prefs["auto_spam_text"])
-                    rand = random.randrange(1, 20)
-                    await asyncio.sleep(rand)
-                else:
-                    channel = client.get_channel(int(prefs["auto_spam_channel"]))
-                    await channel.send(prefs["auto_spam_text"])
-                    await asyncio.sleep(int(prefs["auto_spam_interval"]))
-    except:
-        print("Something went wrong with the channel id.")
+    for channel in channel_list:
+        if channel_list[channel][1] == "True":
+            spchannel = client.get_channel(int(channel))
+            client.loop.create_task(spamThread(spchannel,channel_list[channel][2]))
+    print("JokerCord is connected and running. Version : Multi-1.0.0")
+
     
 @client.event
 async def on_message(message):
@@ -156,7 +169,7 @@ async def on_message(message):
                     save_line = i
                     break
             if(save_line in legendaries):
-                await asyncio.sleep(2)
+                await asyncio.sleep(3)
             else:
                 await asyncio.sleep(int(guild_list[str(message.guild.id)][3]))
             if(prefs["custom_list"] == "True"):

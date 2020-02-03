@@ -115,6 +115,24 @@ def custom_guilds():
         guilds = json.load(glds)
         glds.close()
     return render_template("custom_guilds.html", guilds=guilds)#, icons=icons, ids=ids)
+@app.route("/spam")
+def spam():
+    with open (pth_r + "/User/channels.json") as chnl:
+        channels = json.load(chnl)
+        chnl.close()
+    return render_template("spam.html",channels=channels);
+@app.route("/spam_delay/<string:id>",methods=['POST'])
+def spam_delay(id):
+    with open (pth_r + "/User/channels.json",'r') as delay:
+        change_delay=json.load(delay)
+        delay.close()
+    change_delay[id][2]=request.form.get(str(id))
+    with open (pth_r + "/User/channels.json",'w') as delay:
+        json.dump(change_delay,delay)
+        delay.close()
+
+    return redirect(url_for("spam"))
+
 @app.route("/custom_list", methods=['GET', 'POST'])
 def custom_list():
     error = False
@@ -138,6 +156,17 @@ def custom_list():
         cl = json.load(c)
         c.close()
     return render_template("custom_list.html", cl=cl, err=error)
+@app.route("/change_channel/<string:id>/<string:status>")
+def change_channel(id,status):
+    with open (pth_r + '/User/channels.json', 'r') as channels_list:
+        channels=json.load(channels_list)
+        channels_list.close()
+    with open (pth_r + '/User/channels.json', 'w') as channels_write:
+        channels[str(id)][1]=status
+        json.dump(channels,channels_write)
+        channels_write.close()
+    return redirect(url_for("spam"))
+
 @app.route("/del_custom/<string:id>")
 def del_custom(id):
     try:
@@ -154,11 +183,7 @@ def setup():
         token = pref["token"]
     else:
         token = "Insert your token here:"
-    if(pref["auto_spam_channel"] != ""):
-        channel = pref["auto_spam_channel"]
-    else:
-        channel = "Insert the channel ID here:"
-    return render_template("setup.html", token=token, channel=channel)
+    return render_template("setup.html", token=token)
 @app.route("/settings")
 def settings():
     return render_template("settings.html")
@@ -182,23 +207,11 @@ def setup_finished():
         if request.method == 'POST':
             error = None
             token = request.form.get('token')
-            auto_spam = request.form.get('auto_spam')
-            if auto_spam == "auto_spam_true":
-                auto_spam = "True"
-            else:
-                auto_spam = False
-            channel_id = request.form.get('channel_id')
-            spam_interval = request.form.get('spam_interval')
-            spam_text = request.form.get('spam_text')
-            if(token == "" or channel_id == "" or spam_interval == "" or spam_text == ""):
+            if(token == ""): 
                  error = "Please fill out all the required fields"
                  return render_template("setup.html", error=error)
             else:
                 bot_thread.write_json("token", token)
-                bot_thread.write_json("auto_spam", auto_spam)
-                bot_thread.write_json("auto_spam_channel", channel_id)
-                bot_thread.write_json("auto_spam_interval", spam_interval)
-                bot_thread.write_json("auto_spam_text", spam_text)
                 return redirect(url_for("home"))  
 
 @app.route("/preferences")
