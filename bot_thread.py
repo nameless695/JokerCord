@@ -75,7 +75,7 @@ client = commands.Bot(command_prefix='_')
 #Defines
 async def spamThread(channelInstance,delay):
     while(True):
-        await channelInstance.send("Random text")
+        await channelInstance.send(str(random. randint(0,9999999))
         await asyncio.sleep(int(delay))
 def gethash(img):
     with open (img, "rb") as h:
