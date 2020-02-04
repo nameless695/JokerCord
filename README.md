@@ -7,9 +7,6 @@ This update brings a new awesome feature: Multi spam!
 Enable and disable spam in specific channels and set a delay for each of them! 
 -The setup of the bot has been simplified
 
-
-
-# UPDATE IN PROGRESS  29/01/2020
 The bot is being updated and rewritten. Please add any suggestions in issues. Old suggestions will be considered too.
 Current objectives:
 Items marked with ~~this line~~ have already been completed.
@@ -17,15 +14,14 @@ Items marked with *italic* are being discussed.
 1. ~~Simplify setup of the bot~~
 2. ~~Add the option to spam on multiple channels~~
 3. *Discard pokemons by IV*
-4. Make a video tutorial for Windows and Linux
+4. Make a video tutorial for Windows and ~~Linux~~
 
-# NEW: MacOS Tutorial video and PoC (Can be followed on other Operating Systems, but with some differences)
+# NEW: Video tutorials
 
 This video covers the bot setup, not the Python installation.
 
-[![Video tutorial](http://www.brandemia.org/sites/default/files/logo_youtube.jpg)](https://youtu.be/4Lqbk2k2fwk)
-
-If the image isn't working, click [here](https://youtu.be/4Lqbk2k2fwk)
+(OLD) Tutorial for MacOS [here](https://youtu.be/4Lqbk2k2fwk)
+(NEW) Tutorial for Linux [here](https://youtu.be/Zuy4nqE3DEE)
 
 ## NEW VERSION - 08/Oct/2019
 
