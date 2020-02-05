@@ -23,7 +23,7 @@ This video covers the bot setup, not the Python installation.
 (OLD) Tutorial for MacOS [here](https://youtu.be/4Lqbk2k2fwk)
 (NEW) Tutorial for Linux [here](https://youtu.be/Zuy4nqE3DEE)
 
-## NEW VERSION - 08/Oct/2019
+## Old version - 08/Oct/2019
 
 **To manage the bot, go to your browser of preference after running joker.py and type http://localhost:5555**
 
@@ -64,9 +64,10 @@ Functionalities:
 - Auto catch
 - Set custom list to catch only some Pokemon's
 - Modern Web Interface for easy management
-- Auto spam (Customizable text and interval!)
+- Auto spam
+- Multi spam
 - Enable/Disable auto catching on certain servers
--Set custom catch delay for each server
+- Set custom catch delay for each server
 
 More things are going to be added as the development progresses. Remember, if you have any idea don't hesitate to post it on Issues!
 
@@ -92,7 +93,7 @@ If you have never used Python, this will guide you through each step in order to
 
 First of all, identify your Operating System (Windows, GNU/Linux, MacOS...)
 
-## For Linux / Mac OS
+## For Linux
 Open a terminal session and run apt update:
 ```bash
 sudo apt-get update
@@ -138,7 +139,6 @@ After you start joker.py, navigate to http://localhost:5555 to manage the bot, a
 
 To get your discord token: [Tutorial](https://discordhelp.net/discord-token)
 
-To get a channel ID, first enable discord developer mode by accesing Settings>Appearance>Enable developer mode ,and then right click on any channel and select ID.
 
 ## Contributing
 Any bugs you find please consider sending them. Do notice this bot is in a very early beta stage so not all names will be correct.
