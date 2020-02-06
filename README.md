@@ -11,10 +11,11 @@ The bot is being updated and rewritten. Please add any suggestions in issues. Ol
 Current objectives:
 Items marked with ~~this line~~ have already been completed.
 Items marked with *italic* are being discussed.
-1. ~~Simplify setup of the bot~~
-2. ~~Add the option to spam on multiple channels~~
-3. *Discard pokemons by IV*
-4. Make a video tutorial for Windows and ~~Linux~~
+1. Add custom prefix support.
+2. ~~Simplify setup of the bot~~
+3. ~~Add the option to spam on multiple channels~~
+4. *Discard pokemons by IV*
+5. Make a video tutorial for Windows and ~~Linux~~
 
 # NEW: Video tutorials
 
